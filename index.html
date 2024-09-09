@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODETHON'24 Registration</title>
+    <style>
+        .section-options, .whatsapp-link {
+            display: none;
+        }
+    </style>
+    <script>
+        function handleYearChange() {
+            const year = document.getElementById('year').value;
+            const sectionOptions = document.getElementById('section-options');
+            const whatsappLink = document.getElementById('whatsapp-link');
+            if (year === '2nd') {
+                sectionOptions.innerHTML = `
+                    <label for="section">Choose your Section:</label>
+                    <select id="section" name="section" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                `;
+                whatsappLink.innerHTML = `<a href="https://chat.whatsapp.com/IrYPVuSzaVUII1eh7GPY44" target="_blank">Join WhatsApp Group for 2nd Year</a>`;
+                sectionOptions.style.display = 'block';
+                whatsappLink.style.display = 'block';
+            } else if (year === '3rd') {
+                sectionOptions.innerHTML = `
+                    <label for="section">Choose your Section:</label>
+                    <select id="section" name="section" required>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
+                `;
+                whatsappLink.innerHTML = `<a href="https://chat.whatsapp.com/IrYPVuSzaVUII1eh7GPY44" target="_blank">Join WhatsApp Group for 3rd Year</a>`;
+                sectionOptions.style.display = 'block';
+                whatsappLink.style.display = 'block';
+            } else {
+                sectionOptions.style.display = 'none';
+                whatsappLink.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Register for CODETHON'24</h1>
+    <form action="YOUR_GOOGLE_APPS_SCRIPT_URL" method="POST">
+        <label for="year">Select your Year:</label>
+        <select id="year" name="year" onchange="handleYearChange()" required>
+            <option value="">--Select Year--</option>
+            <option value="2nd">2nd Year</option>
+            <option value="3rd">3rd Year</option>
+        </select>
+        <div id="section-options" class="section-options">
+            <!-- Section options will be injected here -->
+        </div>
+        <div id="whatsapp-link" class="whatsapp-link">
+            <!-- WhatsApp link will be injected here -->
+        </div>
+        <label for="rollno">Roll Number:</label>
+        <input type="text" id="rollno" name="rollno" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
